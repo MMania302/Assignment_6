@@ -35,7 +35,7 @@ int main(int argc, char *argv[]){
                 movies.insertMovie(movieName,movieYear);
             }
             else if(menu==2){
-                cout << "Enter title: " << endl;
+                cout << "Enter title:" << endl;
                 string movieToDelete;
                 getline(cin,movieToDelete);
                 movies.deleteMovie(movieToDelete);

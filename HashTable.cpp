@@ -8,18 +8,15 @@ HashTable::HashTable(){
 int HashTable::hashSum(std::string name,int hashSize){
     int newSum = 0;
     for(int i = 0;i<name.length();i++){
-        newSum = newSum + name[0];
+        newSum = newSum + name[i];
     }
     return newSum%hashSize;
 }
 void HashTable::insertMovie(std::string name,int year){
     int index = hashSum(name,10);
-    //std::cout << index << ":" << name << std::endl;
     if(hashTable[index]==NULL){
-        //std::cout << "index empty" << std::endl;
         HashElem* tmp = new HashElem(name,year);
         hashTable[index] = tmp;
-        //std::cout << hashTable[index]->title << std::endl;
     }
     else if(hashTable[index]!=NULL){
         HashElem* newMovie = new HashElem(name,year);
@@ -70,7 +67,7 @@ void HashTable::findMovie(std::string name){
     }
     else{
         HashElem* tmp = hashTable[index];
-        while(tmp!=NULL&&tmp->title==name){
+        while(tmp!=NULL&&tmp->title!=name){
             tmp = tmp->next;
         }
         if(tmp==NULL){
